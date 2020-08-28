@@ -77,8 +77,6 @@ def protected():
 @app.route('/process', methods=['POST'])
 def process_image():
     image = request.files['image']
-    print(image)
-    print('Udalo sie')
     network_output = process_image_internal(image)
 
     return "{ value: " + str(network_output) + " }"
