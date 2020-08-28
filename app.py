@@ -60,8 +60,10 @@ def identity(payload):
 
 def process_image_internal(image):
     network_output = False
-    network_output = PageBackNeural.main(image)
-
+    try:
+        network_output = PageBackNeural.main(image)
+    except:
+        print('Processing error')
     return network_output
 
 
