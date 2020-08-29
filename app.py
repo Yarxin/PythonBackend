@@ -3,6 +3,7 @@ from flask import request
 from flask_login import LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt import JWT, jwt_required, current_identity
+from flask_cors import CORS
 import sqlite3
 from sqlite3 import Error
 from werkzeug.security import safe_str_cmp
@@ -35,6 +36,7 @@ app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///FlaskLogin.db'
 app.config['SECRET_KEY'] = 'bardzo_tajny_klucz'
 db = SQLAlchemy(app)
+CORS(app)
 
 db = SQLAlchemy(app)
 login_manager = LoginManager()
